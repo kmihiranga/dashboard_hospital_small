@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <router-link to="/dashboard" class="nav-link {{ Request::is('home') ? 'active' : null }}">
+                            <router-link to="/dashboard" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt blue"></i>
                                 <p>
                                     Dashboard
@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/company" class="nav-link {{ Request::is('company') ? 'active' : null }}">
+                            <router-link to="/company" class="nav-link">
                                 <i class="nav-icon fas fa-building green"></i>
                                 <p>
                                     Company
@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/hospitals" class="nav-link {{ Request::is('hospitals') ? 'active' : null }}">
+                            <router-link to="/hospitals" class="nav-link">
                                 <i class="nav-icon fas fa-hospital red"></i>
                                 <p>
                                     Hospitals
@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/details" class="nav-link {{ Request::is('details') ? 'active' : null }}">
+                            <router-link to="/details" class="nav-link">
                                 <i class="nav-icon fas fa-file pink"></i>
                                 <p>
                                     Details
@@ -121,7 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                         @endcan
                         <li class="nav-item">
-                            <router-link to="/user" class="nav-link {{ Request::is('user') ? 'active' : null }}">
+                            <router-link to="/user" class="nav-link">
                                 <i class="nav-icon fas fa-user-circle"></i>
                                 <p>
                                     Profile
@@ -129,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/profile" class="nav-link {{ Request::is('user') ? 'active' : null }}">
+                            <router-link to="/profile" class="nav-link">
                                 <i class="nav-icon fas fa-users green"></i>
                                 <p>
                                     Users

@@ -10,4 +10,9 @@ class Hospital extends Model
     use SoftDeletes;
 
     protected $fillable = ['name'];
+
+    public function details()
+    {
+        return $this->hasMany('App\Detail', 'hospital');
+    }
 }

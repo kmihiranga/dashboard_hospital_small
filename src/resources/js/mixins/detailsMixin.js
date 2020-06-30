@@ -12,6 +12,7 @@ export default {
             fullPage: false,
             searchcompany: "",
             searchhospital: "",
+            searchdate: "",
             form: new Form({
                 id: "",
                 hospital: "",
@@ -300,6 +301,13 @@ export default {
                     console.log(err);
                     this.isLoading = false;
                 });
+        },
+        async searchByDate() {
+            this.isLoading = true;
+            let query = this.searchdate;
+            let res = await axios.get("api/sortdate?q=" + query);
+            this.details = res.data;
+            this.isLoading = false;
         }
     }
 };

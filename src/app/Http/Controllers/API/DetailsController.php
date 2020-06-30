@@ -30,7 +30,7 @@ class DetailsController extends Controller
         $this->validate($request, [
             'company' => 'required|numeric',
             'hospital' => 'required|numeric',
-            'voucher_no' => 'required|string|max:255|unique:details,voucher_no,NULL,id,deleted_at,NULL',
+            'voucher_no' => 'required|string|max:255',
             'date' => 'required',
             'sub_total' => 'required',
             'payee' => 'required'
@@ -63,7 +63,7 @@ class DetailsController extends Controller
         $this->validate($request, [
             'company' => 'required|numeric',
             'hospital' => 'required|numeric',
-            'voucher_no' => 'required|string|max:255|unique:details,voucher_no,' . $details->id . ',id,deleted_at,NULL',
+            'voucher_no' => 'required|string|max:255',
             'date' => 'required',
             'sub_total' => 'required',
             'payee' => 'required',
@@ -115,6 +115,19 @@ class DetailsController extends Controller
             $details = Detail::with('companies', 'hospitals')->where(function ($query) use ($search) {
                 $query->where('payee', 'LIKE', "%$search%")
                     ->orWhere('voucher_no', 'LIKE', "%$search%");
+            })->paginate(100);
+        } else {
+            $details = Detail::with('companies', 'hospitals')->latest()->paginate(20);
+        }
+
+        return $details;
+    }
+
+    public function sortDate()
+    {
+        if ($search = \Request::get('q')) {
+            $details = Detail::with('companies', 'hospitals')->where(function ($query) use ($search) {
+                $query->where('date', 'LIKE', "%$search%");
             })->paginate(100);
         } else {
             $details = Detail::with('companies', 'hospitals')->latest()->paginate(20);

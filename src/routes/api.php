@@ -36,3 +36,4 @@ Route::get('sortcompany/{id}', 'API\DetailsController@sort');
 Route::get('sorthospital/{id}', 'API\DetailsController@sortHospital');
 Route::get('finddetails', 'API\DetailsController@sortname');
 Route::apiResources(['dashboard' => 'API\DashboardController']);
+Route::get('sortdate', 'API\DetailsController@sortDate');

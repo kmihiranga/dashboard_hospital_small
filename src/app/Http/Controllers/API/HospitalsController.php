@@ -87,8 +87,8 @@ class HospitalsController extends Controller
     public function destroy($id)
     {
         $hospital = Hospital::findOrFail($id);
-        if ($hospital->delete()) {
-            return response()->json(['message' => 'deleted']);
-        }
+        $hospital->details()->delete();
+        $hospital->delete();
+        return response()->json(['message' => 'deleted']);
     }
 }

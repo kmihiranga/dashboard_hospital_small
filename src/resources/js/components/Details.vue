@@ -9,7 +9,7 @@
 
           <div class="card-tools">
             <div class="row mb-2">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <autocomplete
                   ref="autocomplete"
                   placeholder="Filter by companies"
@@ -21,7 +21,7 @@
                   @selected="searchByCompany"
                 ></autocomplete>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <autocomplete
                   ref="autocomplete"
                   placeholder="Filter by hospitals"
@@ -32,6 +32,16 @@
                   name="searchhospital"
                   @selected="searchByHospital"
                 ></autocomplete>
+              </div>
+              <div class="col-md-4">
+                <input
+                  v-model="searchdate"
+                  type="date"
+                  name="searchdate"
+                  class="form-control"
+                  placeholder="Filter by date..."
+                  @change="searchByDate"
+                />
               </div>
             </div>
             <div class="row">
